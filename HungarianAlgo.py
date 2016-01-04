@@ -31,3 +31,26 @@ def pad_to_square(mat, pad_val=0):
     padded = np.full((max(mat.shape), max(mat.shape)), pad_val)
     padded[:mat.shape[0],:mat.shape[1]] = mat
     return padded
+
+
+def hungarian_algo(cost_mat):
+    for r in cost_mat:
+        r -= min(r)
+
+def pad_to_square(mat, pad_val=0):
+    if mat.shape[0] > mat.shape[1]:
+        pad_width = ((0,0), (0,mat.shape[0]-mat.shape[1]))
+    else:
+        pad_width = ((0,mat.shape[1]-mat.shape[0]), (0,0))
+
+    return np.pad(mat, pad_width, mode='constant', constant_values=pad_val)
+
+
+class MultiTracker(object):
+    def __init__(self):
+        first = True
+
+    def update(arr):
+        
+        
+        
